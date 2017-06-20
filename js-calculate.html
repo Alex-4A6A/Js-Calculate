@@ -33,7 +33,7 @@
     <form>
         <p>
           <label for="numbers">Numbers:</label>
-          <input type="text" class="numbers" id="numbers" name="numbers">
+          <input type="text" type="number" id="numbers" name="numbers">
         </p>
         <p>
           <label for="operation">Operation:</label>
@@ -44,7 +44,7 @@
             <option value="divide">/</option>
           </select>
         </p>
-        <button type="button" id="calculate">Calculate</button>
+        <button type="button" id="calculate" onclick="myCalculation()">Calculate</button>
         <p class="result">Result: <strong id="result">-</strong></p>
     </form>
 
@@ -69,15 +69,42 @@
       
     <!-- JavaScript - better to put code in external JS file -->    
     <script>
-        var calculate = document.getElementById("result");
-        function calculate() { 
-            if (number.length > 0) {
-          } else
-                if         
-                
-           
-            
-        } 
+       var array;
+	var numbers = document.getElementById('getal').value;
+	array = (words.split(","));
+	var operator = document.getElementById('keuzes').value;
+
+ 
+	for(i=0; i <array.length; i++){
+		 array[i] = parseFloat(array[i]);
+
+	}
+
+	var result = array[0];
+	for(i=1; i<array.length; i++){
+		result = berekenen(result,array[i],operator);
+
+	}
+
+	function berekenen(nummer,nummer2,operator){
+		if (operator == '+') {
+            result = nummer + nummer2;
+
+        } else if (operator == '-') {
+            result = nummer - nummer2;
+
+        } else if (operator == '*') {
+            result = nummer * nummer2;
+
+        } else if (operator == '/') {
+            result = nummer / nummer2;
+        }
+        return result;
+    }
+    console.log(result);
+    document.getElementById('result').innerHTML = "result:" + result;
+}
+
         
  
         
